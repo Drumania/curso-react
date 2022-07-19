@@ -1,12 +1,12 @@
-import SuperButton from './components/SuperButton'
+import React, { useState, useEffect } from 'react';
+import './index.css';
+import ItemCount from './components/ItemCount';
 
-function App() {
- 
+export default function App() {
+
   return (
     <div className="App">
-      <SuperButton />
+      <ItemCount stock="5" initial="1" />
     </div>
-  )
+  );
 }
-
-export default App
