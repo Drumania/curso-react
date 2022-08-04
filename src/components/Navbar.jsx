@@ -42,7 +42,7 @@ const Navbar = () => {
                       </Link>
                     </li>
                   </ul>
-                  <form className="d-flex" role="search">
+                  {/* <form className="d-flex" role="search">
                     <input
                       className="form-control me-2"
                       type="search"
@@ -52,11 +52,10 @@ const Navbar = () => {
                     <button className="btn btn-outline-success" type="submit">
                       Search
                     </button>
-
-                    <Link className="nav-link mx-4 nav-cart" to="/cart">
-                      <i className="bi bi-cart-fill"></i>
-                    </Link>
-                  </form>
+                  </form> */}
+                  <Link className="nav-link mx-4 nav-cart" to="/cart">
+                    <i className="bi bi-cart-fill"></i>
+                  </Link>
                 </div>
               </div>
             </nav>
