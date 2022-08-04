@@ -1,4 +1,5 @@
 :root {
+  --bb-color: #313a97;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -31,6 +32,10 @@ h1 {
   width: 200px;
 }
 
+.navbar .nav-cart {
+  font-size: 2rem;
+}
+
 /* hero */
 .hero-banner-large {
   height: 380px;
@@ -51,19 +56,21 @@ h1 {
   min-height: 400px;
   width: 100%;
   background-color: #1a1a1a;
-  color: #f1f1f1;
+  color: rgb(185, 185, 185);
   margin-bottom: 20px;
   font-size: 5rem;
   font-weight: bold;
   padding: 20px;
   transition: all 0.2s;
   text-decoration: none;
+  filter: saturate(0);
 }
 
 .name-categorias:hover {
   transition: all 0.2s;
   font-size: 7rem;
-  color: rgb(70, 48, 192);
+  color: #f1f1f1;
+  filter: saturate(1);
 }
 
 .item-name {
@@ -123,4 +130,8 @@ button:focus-visible {
 .item-add:focus,
 .item-add:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+footer {
+  background-color: var(--bb-color);
 }

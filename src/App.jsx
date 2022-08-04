@@ -1,23 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Category from "./pages/Category";
 import ProductsDetail from "./components/ProductsDetail";
-cart;
+import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+// import CartContext from "./context/CartContext";
 
 export default function App() {
   return (
     <>
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <Navbar />
-          </div>
-        </div>
-      </div>
+      {/* <CartContext.Provider value={{ cart }}> */}
+      <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,8 +22,11 @@ export default function App() {
         <Route path="/category/:categoryId" element={<categoryDetail />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<ProductsDetail />} />
-        <Route path="/cart" element={`Carrito Vacio`} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
+
+      <Footer />
+      {/* </CartContext.Provider> */}
     </>
   );
 }

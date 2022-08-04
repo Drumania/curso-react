@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 
-const Products = () => {
+const Cart = () => {
   return (
     <>
       <Hero largeShort={"hero-banner-short"} />
@@ -12,8 +12,8 @@ const Products = () => {
           </div>
 
           <div className="col-12">
-            <h3>El carrito esta vacio</h3>
-            Puedes seguir buscando productos
+            <h3>El carrito esta vacioaaaa</h3>
+            Puedes seguir buscando productosasdas
           </div>
         </div>
       </div>
@@ -21,4 +21,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Cart;
