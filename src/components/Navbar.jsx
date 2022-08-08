@@ -5,10 +5,10 @@ import logo from "../assets/bblogo.png";
 const Navbar = () => {
   return (
     <>
-      <div className="container">
-        <div className="row">
+      <div className="container border-bottom">
+        <div className="row ">
           <div className="col-12">
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg ">
               <div className="container">
                 <Link className="nav-link wrap-logo" to="/">
                   <img src={logo} alt="logo" />
@@ -42,20 +42,29 @@ const Navbar = () => {
                       </Link>
                     </li>
                   </ul>
-                  {/* <form className="d-flex" role="search">
+                  <form className="d-flex me-5" role="search">
                     <input
                       className="form-control me-2"
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
                     />
-                    <button className="btn btn-outline-success" type="submit">
-                      Search
-                    </button>
-                  </form> */}
-                  <Link className="nav-link mx-4 nav-cart" to="/cart">
-                    <i className="bi bi-cart-fill"></i>
-                  </Link>
+                  </form>
+                  <ul className="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll">
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/register">
+                        Register
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link">Log in</a>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link mx-4 nav-cart" to="/cart">
+                        <i className="bi bi-cart-fill"></i>
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </nav>

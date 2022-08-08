@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Hero from "../components/Hero";
+import Spinner from "../components/Spinner";
 import axios from "axios";
 
 const ProductsDetail = () => {
   const { productId } = useParams();
   const [movie, setMovie] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   const options = {
     method: "GET",
@@ -17,7 +19,7 @@ const ProductsDetail = () => {
   };
 
   useEffect(() => {
-    console.log("load : " + productId);
+    setLoader(true);
     return () => {
       console.log("return : " + productId);
 
@@ -26,6 +28,7 @@ const ProductsDetail = () => {
         .then(function (response) {
           console.log(response.data.result);
           setMovie(response.data.result);
+          setLoader(false);
         })
         .catch(function (error) {
           console.error(error);
@@ -36,47 +39,57 @@ const ProductsDetail = () => {
   return (
     <>
       <Hero largeShort={"hero-banner-short"} />
-      <div className="container">
-        <div className="row py-5">
-          <div className="col-4 ">
-            <img src={movie.image} />
-          </div>
-          <div className="col-6 pt-5">
-            <h2>{movie.title}</h2>
-            <p>{movie.description}</p>
+      {loader ? (
+        <Spinner />
+      ) : (
+        <div className="container">
+          <div className="row py-5">
+            <div
+              className="col-4"
+              style={{
+                backgroundImage: `url(${movie.image})`,
+                backgroundPosition: "center",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+            <div className="col-6 pt-5 ps-5">
+              <h2>{movie.title}</h2>
+              <p>{movie.description}</p>
 
-            <h6 className="title-price">
-              <small>PRECIO OFERTA</small>
-            </h6>
-            <h3>U$S 20</h3>
-
-            <div className="section pt-5">
-              <h6 className="title-attr">
-                <small>CANTIDAD</small>
+              <h6 className="title-price">
+                <small>PRECIO OFERTA</small>
               </h6>
-              <div>
-                <a href="#!" className="btn-minus">
-                  <i className="bi bi-file-minus"></i>
-                </a>
-                <span className="text-center px-2">1</span>
-                <a href="#!" className="btn-plus">
-                  <i className="bi bi-file-plus"></i>
-                </a>
-              </div>
-            </div>
+              <h3>U$S 20</h3>
 
-            <div className="section pt-5">
-              <button className="btn btn-success">
-                <span
-                  className="glyphicon glyphicon-shopping-cart"
-                  aria-hidden="true"
-                ></span>
-                Agregar al carro
-              </button>
+              <div className="section pt-5">
+                <h6 className="title-attr">
+                  <small>CANTIDAD</small>
+                </h6>
+                <div>
+                  <a href="#!" className="btn-minus">
+                    <i className="bi bi-file-minus"></i>
+                  </a>
+                  <span className="text-center px-2">1</span>
+                  <a href="#!" className="btn-plus">
+                    <i className="bi bi-file-plus"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div className="section pt-5">
+                <button className="btn btn-success">
+                  <span
+                    className="glyphicon glyphicon-shopping-cart"
+                    aria-hidden="true"
+                  ></span>
+                  Agregar al carro
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

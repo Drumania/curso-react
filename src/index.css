@@ -32,10 +32,6 @@ h1 {
   width: 200px;
 }
 
-.navbar .nav-cart {
-  font-size: 2rem;
-}
-
 /* hero */
 .hero-banner-large {
   height: 380px;
@@ -48,9 +44,6 @@ h1 {
 }
 
 /* categorias */
-.grid-categorias > div {
-  display: flex;
-}
 
 .name-categorias {
   min-height: 400px;
@@ -280,6 +273,35 @@ button:focus-visible {
 .product-grid2 .price {
   color: #303030;
   font-size: 15px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: var(--bb-color);
+  animation: spin 1s ease infinite;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s ease infinite;
+  margin: 50px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 426px) {

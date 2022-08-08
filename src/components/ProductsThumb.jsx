@@ -3,12 +3,18 @@ import React from "react";
 const ProductsThumb = ({ productsId, title, image }) => {
   return (
     <>
-      <div className="col-2">
+      <div className="col-3">
         <div className="product-grid2">
           <div className="product-image2">
-            <a href={`/products/${productsId}`}>
-              <img className="pic-1" src={image} />
-            </a>
+            <a
+              href={`/products/${productsId}`}
+              style={{
+                backgroundImage: `url(${image})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></a>
             <ul className="social">
               <li>
                 <a href={`/products/${productsId}`} data-tip="Quick View">

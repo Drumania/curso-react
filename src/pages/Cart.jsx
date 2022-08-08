@@ -4,7 +4,6 @@ import Hero from "../components/Hero";
 const Cart = () => {
   return (
     <>
-      <Hero largeShort={"hero-banner-short"} />
       <div className="container">
         <div className="row">
           <div className="col-12">
