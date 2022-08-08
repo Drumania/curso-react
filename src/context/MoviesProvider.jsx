@@ -3,29 +3,22 @@ import axios from "axios";
 
 const MoviesContext = createContext();
 
+// API TRAGOS
+// https://www.thecocktaildb.com/api.php
+
 const MoviesProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
   const [list, setList] = useState([]);
 
-  const moviesSearch = async (searchWord) => {
+  const moviesSearch = async () => {
     setLoader(true);
-
-    const options = {
-      method: "GET",
-      url: "https://movies-app1.p.rapidapi.com/api/movies",
-      params: { limit: "12", genres: searchWord },
-      headers: {
-        "X-RapidAPI-Key": "6c99e53ecamshc063603f927e276p19501ajsn305dd4a3ac26",
-        "X-RapidAPI-Host": "movies-app1.p.rapidapi.com",
-      },
-    };
-    console.log("la url:");
-
     axios
-      .request(options)
+      .request(
+        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"
+      )
       .then(function (response) {
-        console.log(response.data.results);
-        setList(response.data.results);
+        console.log(response.data);
+        setList(response.data);
         setLoader(false);
       })
       .catch(function (error) {

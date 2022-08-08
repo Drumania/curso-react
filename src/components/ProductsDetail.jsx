@@ -1,44 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Hero from "../components/Hero";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 
 const ProductsDetail = () => {
   const { productId } = useParams();
-  const [movie, setMovie] = useState([]);
+  const [drink, setDrink] = useState([]);
   const [loader, setLoader] = useState(false);
-
-  const options = {
-    method: "GET",
-    url: `https://movies-app1.p.rapidapi.com/api/movie/${productId}`,
-    headers: {
-      "X-RapidAPI-Key": "6c99e53ecamshc063603f927e276p19501ajsn305dd4a3ac26",
-      "X-RapidAPI-Host": "movies-app1.p.rapidapi.com",
-    },
-  };
 
   useEffect(() => {
     setLoader(true);
-    return () => {
-      console.log("return : " + productId);
-
-      axios
-        .request(options)
-        .then(function (response) {
-          console.log(response.data.result);
-          setMovie(response.data.result);
-          setLoader(false);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    };
+    axios
+      .request(
+        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${productId}`
+      )
+      .then(function (response) {
+        console.log(response.data.drinks[0]);
+        setDrink(response.data.drinks[0]);
+        setLoader(false);
+      })
+      .catch(function (error) {
+        console.error("Error en el api:" + error);
+      });
   }, []);
 
   return (
     <>
-      <Hero largeShort={"hero-banner-short"} />
       {loader ? (
         <Spinner />
       ) : (
@@ -47,15 +34,15 @@ const ProductsDetail = () => {
             <div
               className="col-4"
               style={{
-                backgroundImage: `url(${movie.image})`,
+                backgroundImage: `url(${drink.strDrinkThumb})`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
             <div className="col-6 pt-5 ps-5">
-              <h2>{movie.title}</h2>
-              <p>{movie.description}</p>
+              <h2>{drink.strDrink}</h2>
+              <p>{drink.strInstructions}</p>
 
               <h6 className="title-price">
                 <small>PRECIO OFERTA</small>

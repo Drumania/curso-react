@@ -1,17 +1,18 @@
 import React from "react";
-import Hero from "../components/Hero";
+import heroImg from "../assets/barra-de-bar.png";
 
 const Home = () => {
   return (
     <>
-      <Hero largeShort={"hero-banner-large"} />
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <h1>HOME</h1>
-          </div>
-        </div>
-      </div>
+      <div
+        className="hero-banner-large"
+        style={{
+          backgroundImage: `url(${heroImg})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
     </>
   );
 };
