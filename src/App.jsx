@@ -19,12 +19,11 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/:productId" element={<ProductsDetail />} />
           <Route path="/category" element={<Category />} />
-          <Route path="/category/:categoryId" element={<Products />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/products/:productId" element={<ProductsDetail />} />
+          <Route path="/products/:filter" element={<Products />} />
           <Route path="/register" element={<Register />} />
-
           <Route path="/cart" element={<Cart />} />
         </Routes>
 

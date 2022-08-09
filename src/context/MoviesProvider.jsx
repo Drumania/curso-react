@@ -10,14 +10,13 @@ const MoviesProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
   const [list, setList] = useState([]);
 
-  const moviesSearch = async () => {
+  const moviesSearch = async (filter) => {
     setLoader(true);
     axios
       .request(
-        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${filter}`
       )
       .then(function (response) {
-        console.log(response.data);
         setList(response.data);
         setLoader(false);
       })
@@ -52,6 +51,7 @@ const MoviesProvider = ({ children }) => {
         loader,
         setLoader,
         list,
+        setList,
         moviesSearch,
       }}
     >

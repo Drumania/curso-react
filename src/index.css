@@ -1,6 +1,9 @@
 :root {
-  --bb-color: #252525;
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  --bb-color: #232323;
+  --wh-color: #fbf8f3;
+  --font-title: "Parisienne", cursive;
+  --font-site: "Poppins", sans-serif;
+
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -19,6 +22,7 @@
 body {
   margin: 0;
   overflow-x: hidden;
+  font-family: var(--font-site);
 }
 
 h1 {
@@ -26,6 +30,7 @@ h1 {
   margin: 30px 0;
   font-size: 7vh;
   color: var(--bb-color);
+  font-family: var(--font-title);
 }
 
 /* Navbar */
@@ -47,24 +52,29 @@ h1 {
 /* categorias */
 
 .name-categorias {
-  min-height: 400px;
+  min-height: 200px;
   width: 100%;
-  background-color: #1a1a1a;
-  color: rgb(185, 185, 185);
+  background-color: var(--bb-color);
+  color: var(--wh-color);
   margin-bottom: 20px;
-  font-size: 5rem;
+  font-size: 22px;
   font-weight: bold;
   padding: 20px;
   transition: all 0.2s;
   text-decoration: none;
   filter: saturate(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(7px 5px 10px #fff);
 }
 
 .name-categorias:hover {
   transition: all 0.2s;
-  font-size: 7rem;
-  color: #f1f1f1;
+  transform: scale(1.1);
+  color: var(--wh-color);
   filter: saturate(1);
+  filter: drop-shadow(7px 5px 10px rgba(0, 0, 0, 0.3));
 }
 
 .item-name {
@@ -93,7 +103,7 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
+  font-family: var(--font-site);
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
@@ -126,9 +136,25 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* product-sidebar */
+
+.product-sidebar a {
+  display: block;
+  color: var(--bb-color);
+  text-decoration: none;
+  line-height: 36px;
+  padding-left: 10px;
+}
+
+.product-sidebar a:hover {
+  background-color: var(--bb-color);
+  color: var(--wh-color);
+  padding-left: 10px;
+}
+
 /* product-grid2 */
 .product-grid2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-site);
   position: relative;
 }
 .product-grid2 .product-image2 {
@@ -180,7 +206,7 @@ button:focus-visible {
 }
 .product-grid2 .social li a {
   color: #505050;
-  background-color: #fff;
+  background-color: var(--wh-color);
   font-size: 17px;
   line-height: 45px;
   text-align: center;
@@ -191,14 +217,14 @@ button:focus-visible {
   transition: all 0.3s ease 0s;
 }
 .product-grid2 .social li a:hover {
-  color: #fff;
+  color: var(--wh-color);
   background-color: #3498db;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .product-grid2 .social li a:after,
 .product-grid2 .social li a:before {
   content: attr(data-tip);
-  color: #fff;
+  color: var(--wh-color);
   background-color: #000;
   font-size: 12px;
   line-height: 22px;
@@ -225,8 +251,8 @@ button:focus-visible {
   opacity: 1;
 }
 .product-grid2 .add-to-cart {
-  color: #fff;
-  background-color: #404040;
+  color: var(--wh-color);
+  background-color: var(--bb-color);
   font-size: 15px;
   text-align: center;
   width: 100%;
@@ -246,7 +272,7 @@ button:focus-visible {
 }
 .product-grid2 .product-new-label {
   background-color: #3498db;
-  color: #fff;
+  color: var(--wh-color);
   font-size: 17px;
   padding: 5px 10px;
   position: absolute;
@@ -267,13 +293,15 @@ button:focus-visible {
 }
 .product-grid2 .title a {
   color: #303030;
+  font-family: var(--site-title);
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s;
 }
-.product-grid2 .title a:hover {
-  color: #3498db;
-}
-.product-grid2 .price {
-  color: #303030;
-  font-size: 15px;
+
+.product-grid2:hover .title a {
+  transform: scale(1.2);
+  transition: all 0.2s;
 }
 
 .spinner {
