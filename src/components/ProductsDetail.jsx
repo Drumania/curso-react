@@ -15,12 +15,11 @@ const ProductsDetail = () => {
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${productId}`
       )
       .then(function (response) {
-        console.log(response.data.drinks[0]);
         setDrink(response.data.drinks[0]);
         setLoader(false);
       })
       .catch(function (error) {
-        console.error("Error en el api:" + error);
+        console.error("Error en el api: " + error);
       });
   }, []);
 
@@ -31,16 +30,7 @@ const ProductsDetail = () => {
       ) : (
         <div className="container">
           <div className="row py-5">
-            <div
-              className="col-4"
-              style={{
-                backgroundImage: `url(${drink.strDrinkThumb})`,
-                backgroundPosition: "center",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-            <div className="col-6 pt-5 ps-5">
+            <div className="offset-1 col-5 pt-5 ps-5">
               <h2>{drink.strDrink}</h2>
               <p>{drink.strInstructions}</p>
 
@@ -74,6 +64,15 @@ const ProductsDetail = () => {
                 </button>
               </div>
             </div>
+            <div
+              className="col-5"
+              style={{
+                backgroundImage: `url(${drink.strDrinkThumb})`,
+                backgroundPosition: "center",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
           </div>
         </div>
       )}

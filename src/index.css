@@ -57,24 +57,23 @@ h1 {
   background-color: var(--bb-color);
   color: var(--wh-color);
   margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 32px;
   font-weight: bold;
   padding: 20px;
   transition: all 0.2s;
   text-decoration: none;
-  filter: saturate(0);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(7px 5px 10px #fff);
+  align-items: flex-end;
+  justify-content: flex-end;
+  filter: saturate(0) drop-shadow(7px 5px 10px #fff);
+  text-align: right;
 }
 
 .name-categorias:hover {
   transition: all 0.2s;
   transform: scale(1.1);
   color: var(--wh-color);
-  filter: saturate(1);
-  filter: drop-shadow(7px 5px 10px rgba(0, 0, 0, 0.3));
+  filter: saturate(1) drop-shadow(7px 5px 10px rgba(0, 0, 0, 0.3));
 }
 
 .item-name {
